@@ -1,0 +1,8 @@
+# os stuff
+.idea/
+
+# virtualenv
+.env/
+
+# database
+db.sqlite3
