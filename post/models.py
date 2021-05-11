@@ -4,15 +4,15 @@ import jdatetime
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=100, unique=True, allow_unicode=True)
-    description = models.TextField()
-    thumbnail = models.ImageField(upload_to='posts')
-    publish = jmodels.jDateTimeField(default=jdatetime.datetime.now)
+    title = models.CharField(max_length=100, verbose_name='عنوان مقاله')
+    slug = models.SlugField(max_length=100, unique=True, allow_unicode=True, verbose_name='آدرس مقاله')
+    description = models.TextField(verbose_name='محتوا')
+    thumbnail = models.ImageField(upload_to='posts', verbose_name='تصویر مقاله')
+    publish = jmodels.jDateTimeField(default=jdatetime.datetime.now, verbose_name='تاریخ انتشار')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     STATUS_CHOICES = (('d', 'پیش نویس'), ('p', 'منتشر شده'))
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES, verbose_name='وضعیت')
 
     def __str__(self):
         return self.title
