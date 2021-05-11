@@ -1,6 +1,22 @@
+def persian_number_convertor(item):
+    numbers = {
+        '۰': '0',
+        '۱': '1',
+        '۲': '2',
+        '۳': '3',
+        '۴': '4',
+        '۵': '5',
+        '۶': '6',
+        '۷': '7',
+        '۸': '8',
+        '۹': '9'
+    }
+    for p, e in numbers.items():
+        item = item.replace(e, p)
+    return item
+
 
 def change_format_date(date):
-    print(555)
     jmonth = {
         "1": "فروردین",
         "2": "اردیبهشت",
@@ -18,4 +34,4 @@ def change_format_date(date):
     time_to_str = "{},{},{}".format(date.year, date.month, date.day)
     time_to_tuple = time_to_str.split(',')
     output = "{} {} {},ساعت{}:{}".format(time_to_tuple[2], jmonth[time_to_tuple[1]], time_to_tuple[0], date.hour, date.minute)
-    return output
+    return persian_number_convertor(output)
