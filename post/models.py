@@ -24,4 +24,4 @@ class Post(models.Model):
         verbose_name = "پست"
         verbose_name_plural = "پست ها"
 
-
+    jpublish.short_description = "زمان انتشار"
