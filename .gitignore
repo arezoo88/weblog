@@ -12,3 +12,6 @@ __pycache__/
 
 #migrations file of database
 migrations
+
+#static file in root
+/static/
