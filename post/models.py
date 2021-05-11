@@ -16,3 +16,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = "پست"
+        verbose_name_plural = "پست ها"
