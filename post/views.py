@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from .models import Post
 
-# Create your views here.
+
+def home(request):
+    posts = Post.objects.filter(status='p')
+    context = {
+        'posts': posts
+    }
+    return render(request, 'post/index.html', context)
