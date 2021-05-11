@@ -15,3 +15,6 @@ migrations
 
 #static file in root
 /static/
+
+#media folder in root
+/media/
