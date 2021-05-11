@@ -1,7 +1,7 @@
 from django.db import models
 from django_jalali.db import models as jmodels
 import jdatetime
-
+from extensions.utils import change_format_date
 
 class Post(models.Model):
     title = models.CharField(max_length=100, verbose_name='عنوان مقاله')
@@ -17,6 +17,11 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def jpublish(self):
+        return change_format_date(self.publish)
+
     class Meta:
         verbose_name = "پست"
         verbose_name_plural = "پست ها"
+
+
