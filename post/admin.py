@@ -13,8 +13,13 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'jpublish', 'status')
+    list_display = ('title', 'slug', 'jpublish', 'status', 'cat_to_str')
     list_filter = (('publish', JDateFieldListFilter), 'status')
     search_fields = ('title', 'description')
     prepopulated_fields = {'slug': ('title',)}  # autocomplete slug when type title
     ordering = ('status', '-publish')
+
+    def cat_to_str(self, obj):
+        return ','.join([category.title for category in obj.category.all()])
+
+    cat_to_str.short_description = 'دسته بندی'
