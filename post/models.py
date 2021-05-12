@@ -15,7 +15,7 @@ class Category(models.Model):
 
     class Meta:
         verbose_name = "دسته بندی"
-        verbose_name_plural = "دسته بندی ها ها"
+        verbose_name_plural = "دسته بندی ها"
         ordering = ('position',)
 
 
