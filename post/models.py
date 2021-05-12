@@ -3,6 +3,22 @@ from django_jalali.db import models as jmodels
 import jdatetime
 from extensions.utils import change_format_date
 
+
+class Category(models.Model):
+    title = models.CharField(max_length=100, verbose_name='عنوان دسته بندی')
+    slug = models.SlugField(max_length=100, unique=True, allow_unicode=True, verbose_name='آدرس بندی')
+    status = models.BooleanField(default=True, verbose_name='آیا نمایش داده شود؟')
+    position = models.IntegerField(verbose_name='پوزیشن')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "دسته بندی"
+        verbose_name_plural = "دسته بندی ها ها"
+        ordering = ('position',)
+
+
 class Post(models.Model):
     title = models.CharField(max_length=100, verbose_name='عنوان مقاله')
     slug = models.SlugField(max_length=100, unique=True, allow_unicode=True, verbose_name='آدرس مقاله')
