@@ -10,7 +10,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link" href="{% url 'post:home' %}">خانه</a></li>
                 {% for category in categories %}
-                    <li class="nav-item"><a class="nav-link" href="index.html">{{ category.title }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'post:category' category.slug %}">{{ category.title }}</a></li>
 
                 {% endfor %}
             </ul>
