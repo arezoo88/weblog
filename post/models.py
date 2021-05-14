@@ -37,8 +37,11 @@ class Post(models.Model):
     def jpublish(self):
         return change_format_date(self.publish)
 
+    def category_published(self):
+        return self.category.filter(status=True)
     class Meta:
         verbose_name = "پست"
         verbose_name_plural = "پست ها"
 
     jpublish.short_description = "زمان انتشار"
+
