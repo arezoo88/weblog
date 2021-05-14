@@ -31,7 +31,7 @@
                         </p>
                         <div>
                             {% for cat  in post.category.all %}
-                                <a href="">#{{ cat.title }}</a>
+                                <a href="{% url 'post:category' cat.slug %}">#{{ cat.title }}</a>
                             {% endfor %}
                         </div>
                     </div>
