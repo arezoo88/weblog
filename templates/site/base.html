@@ -1,4 +1,5 @@
 {% load static %}
+{% load base_tags %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,7 +19,8 @@
         <link href="{% static 'post/css/rtl.css' %}" rel="stylesheet" />
     </head>
     <body>
-        {% include 'site/partials/_navbar.html' %}
+{#        {% include 'site/partials/_navbar.html' %}#}
+        {% category %}
         <!-- Main Content-->
         {% block content %}{% endblock %}
         <hr />
