@@ -20,7 +20,7 @@
             <div class="col-lg-8 col-md-10 mx-auto">
                 {% for post in posts %}
                     <div class="post-preview">
-                        <a href="post.html">
+                        <a href="{% url 'post:detail' post.slug %}">
                             <h2 class="post-title">{{ post.title }}</h2>
                             <h3 class="post-subtitle">{{ post.description | truncatewords:25}}</h3>
                         </a>
@@ -30,7 +30,7 @@
                             {{ post.jpublish }}
                         </p>
                         <div>
-                            {% for cat  in post.category.all %}
+                            {% for cat  in post.category_published.all %}
                                 <a href="{% url 'post:category' cat.slug %}">#{{ cat.title }}</a>
                             {% endfor %}
                         </div>
