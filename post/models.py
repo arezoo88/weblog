@@ -22,7 +22,7 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100, verbose_name='عنوان مقاله')
     slug = models.SlugField(max_length=100, unique=True, allow_unicode=True, verbose_name='آدرس مقاله')
-    category = models.ManyToManyField(to=Category,verbose_name='دسته بندی')
+    category = models.ManyToManyField(to=Category,verbose_name='دسته بندی',related_name="posts")
     description = models.TextField(verbose_name='محتوا')
     thumbnail = models.ImageField(upload_to='posts', verbose_name='تصویر مقاله')
     publish = jmodels.jDateTimeField(default=jdatetime.datetime.now, verbose_name='تاریخ انتشار')
