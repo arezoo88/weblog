@@ -1,0 +1,45 @@
+{% extends 'site/base.html' %}
+{% block content %}
+    <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Clean Blog</h1>
+                        <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                {% for post in category.posts.all %}
+                    <div class="post-preview">
+                        <a href="{% url 'post:detail' post.slug %}">
+                            <h2 class="post-title">{{ post.title }}</h2>
+                            <h3 class="post-subtitle">{{ post.description | truncatewords:25}}</h3>
+                        </a>
+                        <p class="post-meta">
+                            نوشته شده توسط
+                            <a href="#!">آرزو</a>
+                            {{ post.jpublish }}
+                        </p>
+                        <div>
+                            {% for cat  in post.category.all %}
+                                <a href="{% url 'post:category' cat.slug %}">#{{ cat.title }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <hr />
+                {% endfor %}
+
+                <!-- Pager-->
+                <div class="clearfix pager-button"><a class="btn btn-primary float-right" href="#!">پست های قدیمی &larr;</a></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
