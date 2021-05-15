@@ -17,3 +17,6 @@ __pycache__/
 
 #media folder in root
 /media/
+
+#config important info
+weblog/settings.ini
