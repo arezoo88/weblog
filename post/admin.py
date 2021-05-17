@@ -1,7 +1,7 @@
 from django.contrib import admin
-from post.models import Post,Category
+from post.models import Post, Category
 from django_jalali.admin.filters import JDateFieldListFilter
-
+import django_jalali.admin as jadmin
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
