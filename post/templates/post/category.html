@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                {% for post in category.posts.all %}
+                {% for post in category.posts.published %}
                     <div class="post-preview">
                         <a href="{% url 'post:detail' post.slug %}">
                             <h2 class="post-title">{{ post.title }}</h2>
