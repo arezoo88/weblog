@@ -4,6 +4,11 @@ import jdatetime
 from extensions.utils import change_format_date
 
 
+# New Managers
+class ArticleManager(models.Manager):
+    def published(self):
+        return self.filter(status='p')
+
 class Category(models.Model):
     title = models.CharField(max_length=100, verbose_name='عنوان دسته بندی')
     slug = models.SlugField(max_length=100, unique=True, allow_unicode=True, verbose_name='آدرس بندی')
