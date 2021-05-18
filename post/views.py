@@ -3,7 +3,7 @@ from .models import Post,Category
 
 
 def home(request):
-    posts = Post.objects.filter(status='p')
+    posts = Post.objects.published()
     context = {
         'posts': posts
     }
@@ -12,7 +12,7 @@ def home(request):
 
 def detail(request, slug):
     context = {
-        'post': get_object_or_404(Post, slug=slug, status='p')
+        'post': get_object_or_404(Post.objects.published(), slug=slug, status='p')
     }
     return render(request, 'post/detail.html', context)
 
