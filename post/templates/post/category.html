@@ -6,8 +6,7 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
-                        <h1>Clean Blog</h1>
-                        <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                        <h1>وبلاگ</h1>
                     </div>
                 </div>
             </div>
@@ -17,6 +16,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
+                <h3 class="aler alert-primary text-center">{{ category.title }}</h3>
                 {% for post in category.posts.published %}
                     <div class="post-preview">
                         <a href="{% url 'post:detail' post.slug %}">
