@@ -5,4 +5,4 @@ The template that is used in this project is [CleanBlog](https://startbootstrap.
 
 **deployment**
 
-You can see deployed version of project in [here](https://weblog-django.herokuapp.com/)
+You can see deployed version of project in [here](https://django-weblog.herokuapp.com/)
