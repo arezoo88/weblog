@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <h3 class="aler alert-primary text-center">{{ category.title }}</h3>
-                {% for post in category.posts.published %}
+                {% for post in posts %}
                     <div class="post-preview">
                         <a href="{% url 'post:detail' post.slug %}">
                             <h2 class="post-title">{{ post.title }}</h2>
@@ -38,7 +38,14 @@
                 {% endfor %}
 
                 <!-- Pager-->
-                <div class="clearfix pager-button"><a class="btn btn-primary float-right" href="#!">پست های قدیمی &larr;</a></div>
+                <div class="clearfix pager-button">
+                    {% if posts.has_previous %}
+                        <a class="btn btn-primary float-right ml-3" href="{% url 'post:category' category.slug  %}?page={{ posts.previous_page_number }}">پست های جدید &rarr;</a>
+                    {% elif posts.has_next %}
+                        <a class="btn btn-primary float-right" href="{% url 'post:home' category.slug %}?page={{ posts.next_page_number }}">پست های قدیمی &larr;</a>
+
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
