@@ -38,7 +38,16 @@
                 {% endfor %}
 
                 <!-- Pager-->
-                <div class="clearfix pager-button"><a class="btn btn-primary float-right" href="#!">پست های قدیمی &larr;</a></div>
+                <div class="clearfix pager-button">
+                    {% if posts.has_previous %}
+                        <a class="btn btn-primary float-right ml-3" href="#!">پست های جدید &rarr;</a>
+                    {% elif posts.has_next %}
+                        <a class="btn btn-primary float-right" href="#!">پست های قدیمی &larr;</a>
+
+                    {% endif %}
+
+
+                </div>
             </div>
         </div>
     </div>
