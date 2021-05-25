@@ -21,7 +21,13 @@ def detail(request, slug):
 
 
 def category(request, slug):
+    category = get_object_or_404(Category, slug=slug, status=True)
+    posts = category.posts.published()
+    paginator = Paginator(posts, 2) # Show 2 posts per page.
+    page_number = request.GET.get('page')
+    posts = paginator.get_page(page_number)
     context = {
-        'category': get_object_or_404(Category, slug=slug, status=True)
+        'category': category,
+        'posts': posts,
     }
     return render(request, 'post/category.html', context)
