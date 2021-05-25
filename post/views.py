@@ -1,13 +1,16 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Post,Category
-
+from django.core.paginator import Paginator
 
 def home(request):
     posts = Post.objects.published()
-    context = {
-        'posts': posts
-    }
-    return render(request, 'post/index.html', context)
+    paginator = Paginator(posts, 2) # Show 2 posts per page.
+    # context = {
+    #     'posts': posts
+    # }
+    page_number = request.GET.get('page')
+    posts = paginator.get_page(page_number)
+    return render(request, 'post/index.html', {'posts':posts})
 
 
 def detail(request, slug):
