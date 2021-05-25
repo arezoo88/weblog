@@ -22,7 +22,7 @@ class Category(models.Model):
     class Meta:
         verbose_name = "دسته بندی"
         verbose_name_plural = "دسته بندی ها"
-        ordering = ('position',)
+        ordering = ('parent__id','position',)
 
 
 class Post(models.Model):
