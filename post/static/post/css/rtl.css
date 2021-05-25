@@ -20,3 +20,13 @@ body{
 .pager-button{
     float: left;!important;
 }
+
+header.masthead .page-heading h1, header.masthead .site-heading h1{
+    font-size: 40px;
+}
+.post-preview > a > .post-title{
+    font-size: 20px;
+}
+.post-preview > a > .post-subtitle{
+    font-size: 16px;
+}
